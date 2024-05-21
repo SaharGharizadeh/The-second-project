@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <!doctype html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Contant</title>
+    <style type="text/css">
+      #map-canvas{
+        width: 700px;
+        height: 500px;
+        margin: 0 auto;
+      }
+    </style>
+  </body>
+</html>
+    <link rel="stylesheet" href="contant.css">
+    <title>Content</title>
+</head>
+<body>
+    <header>
+        <div class="nav container">
+            <div class="logo">
+                <h1>Tech Solution<span> Inc.</span></h1>
+            </div>
+            <ul> 
+                <li class="btn"><a href="">Home</a></li>
+                <li class="btn"><a href="">About</a></li>
+                <li class="btn"><a href="">services</a></li>
+                 <li class="btn"><a href="">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    </header>
+    <article>
+        <h2>Contant Us</h2>
+        <form>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="lname">Email:</label><br>
+            <input type="text" id="lname" name="lname"><br>
+            <label for="massege">massege:</label><br>
+            <textarea name="message"id="massege" rows="10" cols="30"></textarea><br>
+            <input type="submit" id="submit" value="Submit">
+          </form>
+    </article>
+    <br>
+    <h2 style="text-align: center;margin: 20px 45px 20px 0px;">Map of Herat City</h2>
+    <div id="map">
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        <script type="text/javascript">
+           function initialize() {
+             var myLatlng = new google.maps.LatLng(34.358652, 62.207265);
+             var mapOptions = {
+               zoom: 15,
+               center: myLatlng,
+               mapTypeId: google.maps.MapTypeId.ROADMAP
+             }
+              
+             var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+              
+             var contentString = '<div style="direction: rtl; text-align: right;font-family: Tahoma; width:83.5%">' +
+                                         '<h4>Herat , Navaei Aven</h4>' +
+                                          '<h5>Baq Azadi Street</h5>' +
+                                          '</div>';
+              
+             var infowindow = new google.maps.InfoWindow({
+               content: contentString
+             });
+              
+             var marker = new google.maps.Marker({
+               position: myLatlng,
+               map: map,
+               title: 'Herat'
+             });
+              
+             infowindow.open(map, marker);
+             google.maps.event.addListener(marker, 'click', function() {
+               infowindow.open(map, marker);
+             });
+           }
+        </script>
+    </head>
+    <body onload="initialize()">
+        <div id="map-canvas"></div>
+    </div>
+</body>
+</html>
